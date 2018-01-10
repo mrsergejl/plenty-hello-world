@@ -1,60 +1,22 @@
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 <h1>Hello World!</h1>
 
-<button type="button" id="button" class="btn btn-default">Click me to fill the list group!</button>
+<img src="../images/plentymarkets_graffiti.gif">
 
-<div class="panel panel-default">
-  <div class="panel-heading">Panel heading without title</div>
-  <div class="panel-body">
-    Panel content
-  </div>
+<div class="card terra-card">
+    <div #header class="card-header" [hidden]="!showHeader">
+        <ng-content select="[terra-card-header]"></ng-content>
+    </div>
+    <div class="card-img-top terra-card-image"
+         [style.background-image]="'url(' + inputImagePath + ')'"
+         [style.background-size]="'contain'"
+         *ngIf="inputImagePath && inputImagePath != ''"></div>
+    <div class="card-img-top terra-card-placeholder"
+         *ngIf="!inputImagePath || inputImagePath == ''"
+         [ngClass]="inputPlaceholderIcon"></div>
+    <div class="card-block">
+        <ng-content select="[terra-card-content]"></ng-content>
+    </div>
+    <div #footer class="card-footer" [hidden]="!showFooter">
+        <ng-content select="[terra-card-footer]"></ng-content>
+    </div>
 </div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Panel title</h3>
-  </div>
-  <div class="panel-body">
-    Panel content
-  </div>
-</div>
-
-
-
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Panel heading</div>
-  <div class="panel-body">
-    <p>...</p>
-  </div>
-
-  <!-- List group -->
-  <ul class="list-group">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-</div>
-
-<!-- Jquery -->
-<script
-  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-  crossorigin="anonymous"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-    alert('Hi!');
-
-     $(document).on('click','#button',function(){
-        $('.list-group-item').html('clicked content!!!');
-        alert('clicked!');
-        
-
-    });
-</script>
